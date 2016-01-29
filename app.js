@@ -9,7 +9,7 @@ var MongoStore = require('connect-mongo')(session);
 
 var routes = require('./routes/index');
 var settings = require('./settings');
-var flash = reuqire('connect-flash');
+var flash = require('connect-flash');
 
 
 var app = express();
