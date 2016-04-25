@@ -9,12 +9,31 @@
 	<header>
 		<h1><%= title %></h1>
 	</header>
-
+	<span><form action="/search" method="GET"><input type="text" name="keyword" placeholder="SEARCH" class="search" /></form></span>
 	<nav>
-		<span><a href="/" title="Homepage">HOMEPAGE</a></span>
-		<span><a href="/login" title="login">LOGIN</a></span>
-		<span><a href="/reg" title="Register">REGISTER</a></span>
+	<span><a title="HOMEPAGE" href="/">HOMEPAGE</a></span>
+	<span><a title="存档" href="/archive">archive</a></span>
+	<span><a title="标签" href="/tags">tags</a></span>
+	<span><a title="友情链接" href="/links">links</a></span>
+	<% if (user) { %>
+	  <span><a title="POST" href="/post">POST</a></span>
+	  <span><a href="/upload" title="UPLOAD">UPLOAD</a></span>
+	  <span><a title="LOGOUT" href="/logout">LOGOUT</a></span>
+	<% } else { %>
+	  <span><a title="LOGIN" href="/login">LOGIN</a></span>
+	  <span><a title="REGISTER" href="/reg">REGISTER</a></span>
+	<% } %>
 	</nav>
 
 	<article>
-		
+		<% if(success) {%>
+			<div>
+				<%=success %>
+			</div>
+		<%}%>
+		<% if(error){%>
+			<div>
+				<%=error%>
+			</div>
+		<%}%>
+
